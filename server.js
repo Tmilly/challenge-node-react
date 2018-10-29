@@ -23,7 +23,7 @@ var config = require('./webpack.config');
 dotenv.load();
 
 // ES6 Transpiler
-require('babel-core/register');
+require('@babel/register');
 require('babel-polyfill');
 
 // Models
@@ -41,7 +41,7 @@ var app = express();
 
 var compiler = webpack(config);
 
-mongoose.connect(process.env.MONGODB);
+mongoose.connect(process.env.MONGODB, {useNewUrlParser: true});
 mongoose.connection.on('error', function() {
   console.log('MongoDB Connection Error. Please make sure that MongoDB is running.');
   process.exit(1);
