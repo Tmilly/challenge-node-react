@@ -1,8 +1,8 @@
 import url from 'url';
 import qs from 'querystring';
 import moment from 'moment';
-import cookie from 'react-cookie';
-import { browserHistory } from 'react-router';
+import cookie from 'react-cookies';
+import history from '../history';
 
 // Link account
 export function link(provider) {
@@ -175,7 +175,8 @@ function signIn({ token, user, window, interval, dispatch }) {
       user: user
     });
     cookie.save('token', token, { expires: moment().add(1, 'hour').toDate() });
-    browserHistory.push('/');
+    //browserHistory.push('/');
+    history.push('/');
     resolve({ window: window, interval: interval });
   });
 

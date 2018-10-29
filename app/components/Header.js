@@ -1,5 +1,5 @@
 import React from 'react';
-import { IndexLink, Link } from 'react-router';
+import { NavLink, Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { logout } from '../actions/auth';
 
@@ -42,11 +42,11 @@ class Header extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <IndexLink to="/" className="navbar-brand">Project name</IndexLink>
+            <NavLink exact to="/" className="navbar-brand">Project name</NavLink>
           </div>
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
-              <li><IndexLink to="/" activeStyle={active}>Home</IndexLink></li>
+              <li><NavLink exact to="/" activeStyle={active}>Home</NavLink></li>
               <li><Link to="/contact" activeStyle={active}>Contact</Link></li>
             </ul>
             {rightNav}
